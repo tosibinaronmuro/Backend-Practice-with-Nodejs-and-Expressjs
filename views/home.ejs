@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <p>welcome to the homepage</p>
+    <p>what is the name of the developer</p>
+    <form action="/result" method="POST">
+      <input type="text" name="name" id="name" />
+      <button type="submit">submit</button>
+    </form>
+
+    <% if (isRaining){%>
+    <p>it is raining</p>
+    <% } else{ %>
+    <p>it is not raining</p>
+   <% } %>
+
+   <% 
+   pets.forEach((pet)=>{ %> 
+    <p>my pet name is <%= pet.name %> and it is a <%= pet.species %></p> <%
+    
+   })
+   %>
+  </body>
+</html>
