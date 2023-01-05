@@ -1,6 +1,5 @@
  const randomData=[
-    {   
-        "users": [
+    
           {
             "id": 0,
             "name": "Adam Carter",
@@ -20,23 +19,9 @@
             "address": "9 Coleman Avenue",
             "city": "Toronto",
             "optedin": false
-          }
-        ],
-        "images": [
-          "img0.png",
-          "img1.png",
-          "img2.png"
-        ],
-        "coordinates": {
-          "x": 35.12,
-          "y": -21.49
-        },
-        "price": "$159,395"
-      },
-      { 
-        "users": [
+          },
           {
-            "id": 1,
+            "id": 2,
             "name": "Adam john",
             "work": "twitter",
             "email": "adam.john@twitter.com",
@@ -46,7 +31,27 @@
             "optedin": false
           },
           {
-            "id": 2,
+            "id": 3,
+            "name": "Leanne Brier",
+            "work": "Connic",
+            "email": "leanne.brier@connic.org",
+            "dob": "1987",
+            "address": "9 Coleman Avenue",
+            "city": "Toronto",
+            "optedin": false
+          },
+          {
+            "id": 4,
+            "name": "Adam john",
+            "work": "twitter",
+            "email": "adam.john@twitter.com",
+            "dob": "1945",
+            "address": "83 Warner house",
+            "city": "milpitas",
+            "optedin": false
+          },
+          {
+            "id": 5,
             "name": "Leanne Brier",
             "work": "Connic",
             "email": "leanne.brier@connic.org",
@@ -55,18 +60,39 @@
             "city": "Toronto",
             "optedin": false
           }
-        ],
-        "images": [
-          "img0.png",
-          "img1.png",
-          "img2.png"
-        ],
-        "coordinates": {
-          "x": 35.12,
-          "y": -21.49
-        },
-        "price": "$59,395"
-      }
-]
+          ,{
+            "id": 6,
+            "name": "Adam john",
+            "work": "twitter",
+            "email": "adam.john@twitter.com",
+            "dob": "1945",
+            "address": "83 Warner house",
+            "city": "milpitas",
+            "optedin": false
+          },
+          {
+            "id": 7,
+            "name": "Leanne Brier",
+            "work": "Connic",
+            "email": "leanne.brier@connic.org",
+            "dob": "1987",
+            "address": "9 Coleman Avenue",
+            "city": "Toronto",
+            "optedin": false
+          }
+        ]
+    //     "images": [
+    //       "img0.png",
+    //       "img1.png",
+    //       "img2.png"
+    //     ],
+    //     "coordinates": {
+    //       "x": 35.12,
+    //       "y": -21.49
+    //     },
+    //     "price": "$159,395"
+    //   },
+       
+ 
 
 module.exports={randomData}

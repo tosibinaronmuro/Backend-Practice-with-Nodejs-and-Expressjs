@@ -8,17 +8,21 @@ const {randomData}=require('./data')
  })
  app.get('/api/products',(req,res)=>{
     const users=randomData.map((user)=>{
-         
-        
-        return user.users.map((person)=>{
-            const {name,work,email,dob}=person;
-            return {name,work,email,dob}
+       const {id,name,address,dob,workcity}=user
+       return {id,name,address,dob,workcity}
         })
+        res.status(200).send(users)
     })
-    res.status(200).send(users)
-
-    // res.status(200).send(randomData)
- })
+   
+ 
+ 
+ app.get('/api/products/:userID',(req,res)=>{
+    
+    const {userID}=req.params;
+        const singleUser=randomData.find((user)=>user.id===Number(userID))
+        res.status(200).send(singleUser)
+    })
+   
 app.all('*',(req,res)=>{
     res.status(404).send('<h4>page not found... click  </h4><a href="/">here</a>')
 })
