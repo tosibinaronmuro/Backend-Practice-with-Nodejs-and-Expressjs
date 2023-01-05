@@ -1,4 +1,5 @@
- const express=require('express')
+ const { application } = require('express')
+const express=require('express')
  const app=express()
 const {randomData}=require('./data')
 
@@ -11,7 +12,7 @@ const {randomData}=require('./data')
        const {id,name,address,dob,workcity}=user
        return {id,name,address,dob,workcity}
         })
-        res.status(200).send(users)
+        res.status(200).json(users)
     })
    
  
@@ -20,9 +21,42 @@ const {randomData}=require('./data')
     
     const {userID}=req.params;
         const singleUser=randomData.find((user)=>user.id===Number(userID))
-        res.status(200).send(singleUser)
+        if (!singleUser){
+            return res.status(404).send('<h4>page not found... click  </h4><a href="/">here</a>')
+        }
+        return res.status(200).json(singleUser)
     })
    
+app.get('/api/v1/query',(req,res)=>{
+    console.log(req.query)
+    const{search,limit,workSearch}=req.query;
+    let sortedUsers=[...randomData]
+   if (search){
+    sortedUsers=sortedUsers.filter((product)=>{
+        return product.name.toLocaleLowerCase().startsWith(search.toLocaleLowerCase())
+
+    })
+   
+   }
+   if(workSearch){
+     sortedUsers= sortedUsers.filter((user)=>{
+        return user.work.toLocaleLowerCase().startsWith(workSearch.toLocaleLowerCase())
+    })
+   }
+
+
+   if(limit){
+    sortedUsers=sortedUsers.slice(0,Number(limit))
+    }
+
+    if (sortedUsers.length<1){
+        return res.status(200).json({success:true,data:[]})
+    }
+    
+res.status(200).json(sortedUsers)
+})
+
+
 app.all('*',(req,res)=>{
     res.status(404).send('<h4>page not found... click  </h4><a href="/">here</a>')
 })
