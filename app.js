@@ -5,9 +5,9 @@ const {randomData}=require('./data')
 
  app.get('/',(req,res)=>{
     res.status(200).send('<h4>hellooo there and welcome to our homepage click </h4><a href="./api/products">here</a>')
- 
+
  })
- app.get('/api/products',(req,res)=>{
+app.get('/api/products',(req,res)=>{
     const users=randomData.map((user)=>{
        const {id,name,address,dob,workcity}=user
        return {id,name,address,dob,workcity}
@@ -17,7 +17,7 @@ const {randomData}=require('./data')
    
  
  
- app.get('/api/products/:userID',(req,res)=>{
+app.get('/api/products/:userID',(req,res)=>{
     
     const {userID}=req.params;
         const singleUser=randomData.find((user)=>user.id===Number(userID))
@@ -26,10 +26,20 @@ const {randomData}=require('./data')
         }
         return res.status(200).json(singleUser)
     })
+
+app.get('/api/optedin',(req,res)=>{
+   let sortedUsers=[...randomData]
+     sortedUsers=sortedUsers.filter((optedinStatus)=>{
+        return optedinStatus.optedin==true 
+    })
+    
+   return res.status(200).send(sortedUsers)
    
+    })
+    
 app.get('/api/v1/query',(req,res)=>{
     console.log(req.query)
-    const{search,limit,workSearch}=req.query;
+    const{search,limit,workSearch,optedin}=req.query;
     let sortedUsers=[...randomData]
    if (search){
     sortedUsers=sortedUsers.filter((product)=>{
@@ -43,8 +53,7 @@ app.get('/api/v1/query',(req,res)=>{
         return user.work.toLocaleLowerCase().startsWith(workSearch.toLocaleLowerCase())
     })
    }
-
-
+    
    if(limit){
     sortedUsers=sortedUsers.slice(0,Number(limit))
     }

@@ -58,7 +58,7 @@
             "dob": "1987",
             "address": "9 Coleman Avenue",
             "city": "Toronto",
-            "optedin": false
+            "optedin": true
           }
           ,{
             "id": 6,
@@ -78,7 +78,7 @@
             "dob": "1987",
             "address": "9 Coleman Avenue",
             "city": "Toronto",
-            "optedin": false
+            "optedin": true
           }
         ]
     //     "images": [
