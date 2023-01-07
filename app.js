@@ -1,10 +1,12 @@
 const express=require('express')
 app=express()
+const morgan=require('morgan')
 const logger=require('./logger')
 const authorize=require('./authorize')
 
 
-app.use('/api',[logger,authorize])
+// app.use('/',[logger,authorize])
+app.use(morgan('tiny'))
 
 app.get('/', (req,res)=>{
     res.send('home page')
@@ -13,10 +15,10 @@ app.get('/', (req,res)=>{
 app.get('/about', (req,res)=>{
     res.send('About page')
 })
-app.get('/api/products', (req,res)=>{
+app.get('/api/products' , (req,res)=>{
     res.send('products page')
 })
-app.get('/api/items', (req,res)=>{
+app.get('/api/items' , (req,res)=>{
     res.send('items page')
 })
 app.all('*', (req,res)=>{
