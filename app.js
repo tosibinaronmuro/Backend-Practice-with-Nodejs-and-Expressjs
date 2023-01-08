@@ -1,32 +1,25 @@
-const express=require('express')
-app=express()
-const morgan=require('morgan')
-const logger=require('./logger')
-const authorize=require('./authorize')
+const express = require("express");
+app = express();
+let { people } = require("./data");
 
+app.use(express.static('./frontend'))
+app.use(express.urlencoded({extended:false}))
+app.get('/api/people',(req,res)=>{
+    res.status(200).json({success:true, data:people})
+})
 
-// app.use('/',[logger,authorize])
-app.use(morgan('tiny'))
-
-app.get('/', (req,res)=>{
-    res.send('home page')
+app.post('/login',(req,res)=>{
+    console.log(req.body.Name );
+    if(req.body){
+       return res.send(`hello there ${req.body.Name}`)
+    }
+    else{
+       return res.send('username not found')
+    }
    
 })
-app.get('/about', (req,res)=>{
-    res.send('About page')
-})
-app.get('/api/products' , (req,res)=>{
-    res.send('products page')
-})
-app.get('/api/items' , (req,res)=>{
-    res.send('items page')
-})
-app.all('*', (req,res)=>{
-    res.status(404).send('error 404')
-})
 
- 
 
-app.listen(3400,()=>{
-    console.log('listening to new server on port 3400');
-})
+app.listen(3400, () => {
+  console.log("listening to new server on port 3400");
+});

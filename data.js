@@ -92,7 +92,13 @@
     //     },
     //     "price": "$159,395"
     //   },
-       
+       const people=[
+        {id:1,name:'john'},
+        {id:2,name:'lizzo'},
+        {id:3,name:'james'},
+        {id:4,name:'aaron'},
+        {id:5,name:'monday'},
+       ]
  
 
-module.exports={randomData}
+module.exports={randomData,people}
