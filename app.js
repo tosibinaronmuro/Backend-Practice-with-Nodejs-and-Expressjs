@@ -9,13 +9,12 @@ app.get('/api/people',(req,res)=>{
 })
 
 app.post('/login',(req,res)=>{
-    console.log(req.body.Name );
-    if(req.body){
-       return res.send(`hello there ${req.body.Name}`)
+    const {Name}=req.body
+    if(Name){
+       return res.status(200).send(`hello there ${req.body.Name}`)
     }
-    else{
-       return res.send('username not found')
-    }
+       return res.status(401).send('username not found')
+
    
 })
 

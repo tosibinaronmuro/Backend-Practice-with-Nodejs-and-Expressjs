@@ -41,6 +41,11 @@
     </form>
     
 </section>
+<script>
 
+    const fetchPeople=fetch('./data')
+  .then((response) => response.json())
+  .then((data) => console.log(data));
+</script>
 </body>
 </html>
