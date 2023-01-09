@@ -17,6 +17,14 @@ app.post('/login',(req,res)=>{
 
    
 })
+app.post('/dashboard',(req,res)=>{
+ const {Name}=req.body
+ if(Name){
+  return res.status(200).send(`welcome back ${Name}`)
+ }
+ return res.status(401).send('unauthorized')
+ 
+})
 
 
 app.listen(3400, () => {
