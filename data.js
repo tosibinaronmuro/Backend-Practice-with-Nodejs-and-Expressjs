@@ -97,7 +97,7 @@
         {id:2,name:'lizzo'},
         {id:3,name:'james'},
         {id:4,name:'aaron'},
-        {id:5,name:'monday'},
+        {id:5,name:'monday'}
        ]
  
 
