@@ -80,6 +80,17 @@ app.post('/dashboard',(req,res)=>{
  
 })
 
+app.delete('/api/postman/:id',(req,res)=>{
+  const {id}=req.params
+  const person=people.find((person)=>{person.id===Number(id)})
+  if(!person){
+    res.status(404).json({successful:false,msg:'cannot find resource'})
+  }
+ const newPeople=people.map((newPeople)=>{
+  if(newPeople.id!==person){return newPeople}
+ })
+  return res.status(200).json({successful:true,data:newPeople})
+})
 
 app.listen(3400, () => {
   console.log("listening to new server on port 3400");
