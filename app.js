@@ -81,14 +81,18 @@ app.post('/dashboard',(req,res)=>{
 })
 
 app.delete('/api/postman/:id',(req,res)=>{
-  const {id}=req.params
-  const person=people.find((person)=>{person.id===Number(id)})
-  if(!person){
-    res.status(404).json({successful:false,msg:'cannot find resource'})
-  }
- const newPeople=people.map((newPeople)=>{
-  if(newPeople.id!==person){return newPeople}
- })
+  const{id}=req.params
+  const person=people.find((person)=>person.id===Number(id))
+  if (!person){
+    return res.status(404).json({success:false,msg:`person with id of ${id} not found `})
+    }
+//  const newPeople=people.map((newPerson)=>{
+//   if(newPerson.id!==person){
+//     return newPerson
+//   }
+//  })
+const newPeople=people.filter((person)=>person.id!==person)
+ console.log(newPeople)
   return res.status(200).json({successful:true,data:newPeople})
 })
 
