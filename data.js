@@ -99,6 +99,13 @@
         {id:4,name:'aaron'},
         {id:5,name:'monday'}
        ]
- 
+ const cars=[
+  {id:1,name:'toyota'},
+  {id:2,name:'honda'},
+  {id:3,name:'audi'},
+  {id:4,name:'bmw'},
+  {id:5,name:'ford'}
 
-module.exports={randomData,people}
+ ]
+
+module.exports={randomData,people,cars}

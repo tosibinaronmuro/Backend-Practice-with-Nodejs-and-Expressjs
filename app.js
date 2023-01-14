@@ -3,6 +3,7 @@ app = express();
 
 const people=require('./routes/people')
 const login=require('./routes/auth')
+const cars=require('./routes/cars')
 
 app.use(express.static('./frontend'))
 
@@ -13,6 +14,8 @@ app.use(express.json())
 app.use('/api/people',people)
 
 app.use('/login',login)
+
+app.use('/cars',cars)
 
 
  app.delete('/api/postman/:id',(req,res)=>{
