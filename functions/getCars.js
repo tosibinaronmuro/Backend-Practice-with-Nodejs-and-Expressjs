@@ -33,4 +33,19 @@ const editCar=(req,res)=>{
     res.status(200).json({success:true,data:newCar})
 
 }
-module.exports={getCars,addCar,editCar}
+const deleteCar=(req,res)=>{
+    const {id}=req.params
+    const editedcar=cars.find((car)=>car.id===Number(id))
+    if(!editedcar){
+        res.status(404).json({success:false,msg:`cannot find car with id of ${id}`})
+    }
+    const newCar=cars.filter((car)=>{
+        if (car.id!==Number(id)){
+             return car
+        }
+        
+    })
+    res.status(200).json({success:true,data:newCar})
+
+}
+module.exports={getCars,addCar,editCar,deleteCar}
